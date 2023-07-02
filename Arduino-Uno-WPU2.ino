@@ -58,24 +58,30 @@ void loop() {
   Serial.print("\t");
   Serial.println(Y);
 
-  if (X >= 800) {
+  if (Y >= 800) {
     motor1.run(BACKWARD);
     motor2.run(BACKWARD);
     motor3.run(BACKWARD);
     motor4.run(BACKWARD);
-  } else if (X <= 200) {
+  } else if (Y <= 200) {
     motor1.run(FORWARD);
     motor2.run(FORWARD);
     motor3.run(FORWARD);
     motor4.run(FORWARD);
-  } else if (Y >= 800) {
-    motor1.run(FORWARD);
-    motor2.run(BACKWARD);
-  } else if (Y <= 200) {
+  } else if (X >= 800) {
     motor1.run(BACKWARD);
     motor2.run(FORWARD);
+    motor3.run(FORWARD);
+    motor4.run(BACKWARD);
+  } else if (X <= 200) {
+    motor1.run(FORWARD);
+    motor2.run(BACKWARD);
+    motor3.run(BACKWARD);
+    motor4.run(FORWARD);
   } else {
     motor1.run(RELEASE);
     motor2.run(RELEASE);
+    motor3.run(RELEASE);
+    motor4.run(RELEASE);
   }
 }
